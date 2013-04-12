@@ -123,11 +123,11 @@ else
         #########
         def log(msg)
           output.flush
-          output.puts("\n#{msg}")
+          output.puts("\n#{msg.strip}\n")
           output.flush
 
           # returns:
-          msg
+          msg.strip
         end
 
         def minitest_test_location(fqn)
