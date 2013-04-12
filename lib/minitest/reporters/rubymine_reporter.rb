@@ -92,12 +92,14 @@ else
 
         def before_test(suite, test)
           fqn = "#{suite.name}.#{test.to_s}"
+          log(@message_factory.create_suite_started("#{suite.name}-#{test}"))
           log(@message_factory.create_test_started(test, minitest_test_location(fqn)))
         end
 
         def after_test(suite, test)
           duration_ms = get_current_time_in_ms() - get_time_in_ms(runner.test_start_time || Time.now)
           log(@message_factory.create_test_finished(test, duration_ms.nil? ? 0 : duration_ms))
+          log(@message_factory.create_suite_finished("#{suite.name}-#{test}"))
         end
 
         def skip(suite, test, test_runner)
