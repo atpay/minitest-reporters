@@ -82,12 +82,12 @@ else
         end
 
         def before_suite(suite)
-          fqn = suite.name
-          log(@message_factory.create_suite_started(suite.name, location_from_ruby_qualified_name(fqn)))
+          #fqn = suite.name
+          #log(@message_factory.create_suite_started(suite.name, location_from_ruby_qualified_name(fqn)))
         end
 
         def after_suite(suite)
-          log(@message_factory.create_suite_finished(suite.name))
+          #log(@message_factory.create_suite_finished(suite.name))
         end
 
         def before_test(suite, test)
