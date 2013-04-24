@@ -125,7 +125,12 @@ else
         end
 
         def flush
-          output.puts(@output.join("\n\n"))
+          File.open('/home/teamcity/teamcity.log', 'a') do |f|
+            f.puts("****** Start dump in flush ******")
+            @output.each {|line| f.puts(line)}
+            f.puts("****** End dump in flush ******")
+          end
+          output.puts(@output.join("\n"))
           output.flush
           @output = []
         end
