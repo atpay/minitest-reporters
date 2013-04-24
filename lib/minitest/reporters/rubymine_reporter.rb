@@ -125,7 +125,7 @@ else
         end
 
         def flush
-          output.puts(@output.join("\n"))
+          output.puts(@output.join("\n\n"))
           output.flush
           @output = []
         end
